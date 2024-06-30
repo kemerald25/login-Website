@@ -59,7 +59,7 @@ const MobileMenu = () => {
       <MobileMenuIconLight />
       <div 
         ref={modalRef} 
-        className={`fixed inset-0 h-[100%] w-[50%] mt-[55px] flex items-center justify-center bg-blue-400 z-custom-index ${isMenuOpen ? 'block' : 'hidden'}`}
+        className={`fixed inset-0 h-[100%] w-[50%] mt-[55px] flex items-center justify-center bg-black z-custom-index ${isMenuOpen ? 'block' : 'hidden'}`}
         id="hamburger"
         style={{ right: 0, left: 'auto' }}
       >

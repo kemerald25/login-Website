@@ -28,13 +28,6 @@ const AuthForms = () => {
         }));
     };
 
-    const onAccountTypeChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            accountType: e.target.value,
-        }));
-    };
-
     const login = () => {
         setActiveForm('login');
     };
@@ -73,37 +66,35 @@ const AuthForms = () => {
 
     return (
         <div>
-            <nav className="flex gap-5 items-center justify-between max-w-[1200px] mx-auto mt-5">
-                <div className="nav-logo">
-                    <p>LOGO .</p>
+            <nav className="flex gap-5 md-down:gap-3 md-down:mx-5 items-center justify-between max-w-[1200px] mx-auto mt-5">
+                <div className="nav-logo md-down:text-sm">
+                    <p>LOGO</p>
                 </div>
-                <div className="nav-menu">
+                <div className="nav-menu md-down:hidden">
                     <ul>
-                        <li><a href="#" className="link active">Home</a></li>
-                        <li><a href="#" className="link">Blog</a></li>
-                        <li><a href="#" className="link">Services</a></li>
-                        <li><a href="#" className="link">About</a></li>
+                        <li><a href="/home" className="link active">Home</a></li>
+                        <li><a href="/blog" className="link">Blog</a></li>
+                        <li><a href="/services" className="link">Services</a></li>
+                        <li><a href="/about" className="link">About</a></li>
                     </ul>
                 </div>
-                <div className="nav-button flex items-center gap-3">
-                    <button className=" bg-white px-8 py-2 rounded-full text-black" onClick={login}>Sign In</button>
-                    <button className="bg-white px-8 py-2 rounded-full text-black" onClick={register}>Sign Up</button>
+                <div className="nav-button flex items-center gap-3 md-down:gap-1">
+                    <button className=" bg-white px-8 py-2 rounded-full text-black md-down:px-2 md-down:py-1" onClick={login}>Sign In</button>
+                    <button className="bg-white px-8 py-2 rounded-full text-black md-down:px-2 md-down:py-1" onClick={register}>Sign Up</button>
                 </div>
-                <div className="nav-menu-btn">
-          <i className="bx bx-menu" onClick={MobileMenu}></i>
-        </div>
+                <MobileMenu />
             </nav>
 
-            <div className="form-box">
+            <div className="form-box md-down:!max-w-[100%] md-down:mx-auto">
                 {/* Login Form */}
-                <div className={`Login-container ${activeForm === 'login' ? 'slide-in-left' : ''}`}>
+                <div className={`Login-container md-down:max-w-[100%] md-down:mx-auto ${activeForm === 'login' ? 'slide-in-left' : ''}`}>
                     <div className="top">
                         <span>
                             Have an Account? <a href="#" onClick={login}>Login</a>
                         </span>
                         <header>Login</header>
                     </div>
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={onSubmit} className='mx-5'>
                         <div className="input-details">
                             <input
                                 type="email"
@@ -166,7 +157,7 @@ const AuthForms = () => {
                         </span>
                         <header>Sign Up</header>
                     </div>
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={onSubmit} className='mx-5'>
                         <div className='flex justify-between'>
                             <div className="input-details">
                                 <input
@@ -204,7 +195,8 @@ const AuthForms = () => {
                         </div>
                         <div className="input-details">
                             <input
-                                type={showPassword ? 'text' : 'password'}
+                                // type={showPassword ? 'text' : 'password'}
+                                type='password'
                                 id="password"
                                 value={password}
                                 onChange={onChange}
@@ -212,17 +204,17 @@ const AuthForms = () => {
                                 className="input-field"
                             />
                             <i className="bx bx-lock-alt"></i>
-                            {showPassword ? (
+                            {/* {showPassword ? (
                                 <AiFillEyeInvisible
-                                    className="password-toggle"
+                                    className="password-toggle text-white"
                                     onClick={() => setShowPassword((prevState) => !prevState)}
                                 />
                             ) : (
                                 <AiFillEye
-                                    className="password-toggle"
+                                    className="password-toggle text-white"
                                     onClick={() => setShowPassword((prevState) => !prevState)}
                                 />
-                            )}
+                            )} */}
                         </div>
                         <div className="input-details">
                             <input type="submit" className="submit" value="Register" />
